@@ -2,7 +2,7 @@
 #include <stdio.h>
 #include <string.h>
 
-//¶¨ÒåÁËÒ»¸ö½á¹¹ÌåÀàĞÍÃû³ÆÎªBOOK£¨Ïàµ±ÓÚint¡¢charµÈ£©
+//å®šä¹‰äº†ä¸€ä¸ªç»“æ„ä½“ç±»å‹åç§°ä¸ºBOOKï¼ˆç›¸å½“äºintã€charç­‰ï¼‰
 
 typedef struct {
 	int isbn;
@@ -15,25 +15,25 @@ typedef struct {
 	int length;
 }SeqList;
 
-//³õÊ¼»¯
+//åˆå§‹åŒ–
 
 void InitList(SeqList* list)
 {
 	list->length = 0;
 }
 
-//²åÈë
+//æ’å…¥
 
 void InsertList(SeqList* list, int location, BOOK book)
 {
 	if (list->length >= 100)
 	{
-		printf("Òç³ö£¬ÎŞĞ§");
+		printf("æº¢å‡ºï¼Œæ— æ•ˆ");
 		return;
 	}
 	if ((location - list->length) > 1)
 	{
-		printf("Ë³Ğò±í²»ÄÜÌøÎ»£¬ÇëÖØĞÂÊäÈë²åÈëÎ»ÖÃ");
+		printf("é¡ºåºè¡¨ä¸èƒ½è·³ä½ï¼Œè¯·é‡æ–°è¾“å…¥æ’å…¥ä½ç½®");
 		return;
 	}
 	int t = list->length;
@@ -46,18 +46,18 @@ void InsertList(SeqList* list, int location, BOOK book)
 	list->length++;
 }
 
-//É¾³ı
+//åˆ é™¤
 
 void DeleteList(SeqList* list, int location)
 {
 	if (list->length == 0)
 	{
-		printf("ÎŞÊı¾İ£¬É¾³ıÎŞĞ§");
+		printf("æ— æ•°æ®ï¼Œåˆ é™¤æ— æ•ˆ");
 		return;
 	}
 	if (location <= 0 || location > list->length)
 	{
-		printf("´Ë´¦ÎŞÊı¾İ£¬ÇëÖØĞÂÊäÈëÉ¾³ıÎ»ÖÃ");
+		printf("æ­¤å¤„æ— æ•°æ®ï¼Œè¯·é‡æ–°è¾“å…¥åˆ é™¤ä½ç½®");
 		return;
 	}
 	int t = location - 1;
@@ -69,7 +69,7 @@ void DeleteList(SeqList* list, int location)
 	}
 }
 
-//²éÕÒ
+//æŸ¥æ‰¾
 int SearchList(SeqList* list, int isbn)
 {
 	for (int i = 0; i < list->length; i++)
@@ -80,19 +80,19 @@ int SearchList(SeqList* list, int isbn)
 	return -1;
 }
 
-//ĞŞ¸Ä
+//ä¿®æ”¹
 
 void UpdateList(SeqList* list, int location, double price)
 {
 	if (location <= 0 || location > list->length || list->length == 0)
 	{
-		printf("Êı¾İ²»´æÔÚ");
+		printf("æ•°æ®ä¸å­˜åœ¨");
 		return;
 	}
 	list->data[location - 1].price = price;
 }
 
-//±éÀú
+//éå†
 
 void PrintList(SeqList* list)
 {
@@ -109,18 +109,18 @@ int main()
 {
 	SeqList list = {
 		{
-			{001, "»î×Å", 40.1},
-			{002, "µÚ¶şĞÔ", 50.2},
-			{004, "°ÙÄê¹Â¶À", 62.8},
-			{005, "Ëã·¨µ¼ÂÛ", 31.8}
+			{001, "æ´»ç€", 40.1},
+			{002, "ç¬¬äºŒæ€§", 50.2},
+			{004, "ç™¾å¹´å­¤ç‹¬", 62.8},
+			{005, "ç®—æ³•å¯¼è®º", 31.8}
 		},
 		4
 	};
-	BOOK book = { 003, "Êı¾İ½á¹¹", 25.6 };
+	BOOK book = { 003, "æ•°æ®ç»“æ„", 25.6 };
 	InsertList(&list, 3, book);
 	DeleteList(&list, 1);
 	int location = SearchList(&list, 005);
-	printf("²éÕÒµ½µÄÎ»ÖÃ£º%d\n", location);
+	printf("æŸ¥æ‰¾åˆ°çš„ä½ç½®ï¼š%d\n", location);
 	UpdateList(&list, 1, 10.5);
 	PrintList(&list);
 	return 0;
