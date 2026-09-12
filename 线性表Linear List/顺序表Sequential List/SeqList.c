@@ -1,6 +1,7 @@
 #define _CRT_SECURE_NO_WARNINGS
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 //定义了一个结构体类型名称为BOOK（相当于int、char等）
 
@@ -14,6 +15,14 @@ typedef struct {
 	BOOK data[100];
 	int length;
 }SeqList;
+
+typedef struct {
+	//data是存放那块动态内存的首地址的地址，这就和静态数组分开了。
+	//所以其实我们底下的增删改查核心不需要改。
+	BOOK* data;
+	int length;
+	int capacity;
+}SeqList1;
 
 //初始化
 
@@ -103,6 +112,19 @@ void PrintList(SeqList* list)
 		printf(" %.2f |", list->data[i].price);
 		printf("\n");
 	}
+}
+
+//动态分配内存地址初始化
+
+SeqList1* InitList1(SeqList1* list)
+{
+	//在堆上申请一块能够存放一个 SeqList1 结构体的空间，让 list 指向这块空间。
+	list = (SeqList1*)malloc(sizeof(SeqList1));
+	//创建存书籍信息的地方。
+	list->data = (BOOK*)malloc(sizeof(BOOK) * 10);
+	list->length = 0;
+	list->capacity = 10;
+	return list;
 }
 
 int main()
