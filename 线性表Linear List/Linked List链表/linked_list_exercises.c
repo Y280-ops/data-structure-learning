@@ -63,7 +63,7 @@ void VisitFind(Node* list,int n)
     int* visit = (int*)malloc((n + 1) * sizeof(int));
     if (visit == NULL)
     {
-        printf("ÄÚ´æÉêÇëÊ§°Ü\n");
+        printf("å†…å­˜ç”³è¯·å¤±è´¥\n");
         return;
     }
     for (int i = 0; i < n + 1;i++)
@@ -162,7 +162,7 @@ void CLList(Node* list)
     if (list == NULL || list->next == NULL)
         return;
 
-    // ¢Ù ÕÒµ½Ç°°ë²¿·Ö×îºóÒ»¸ö½Úµã
+    // â‘  æ‰¾åˆ°å‰åŠéƒ¨åˆ†æœ€åŽä¸€ä¸ªèŠ‚ç‚¹
     Node* p = list;
     Node* q = list->next;
 
@@ -182,7 +182,7 @@ void CLList(Node* list)
         first = second;
         second = third;
     }
-    // ¢Ü ½»²æºÏ²¢
+    // â‘£ äº¤å‰åˆå¹¶
     Node* p1 = list->next;
     Node* q1 = first;
     Node* p2, * q2;
@@ -216,7 +216,7 @@ void CLLList(Node* list)
     if (list == NULL || list->next == NULL)
         return;
 
-    // ¢Ù ÕÒµ½Ç°°ë²¿·Ö×îºóÒ»¸ö½Úµã
+    // â‘  æ‰¾åˆ°å‰åŠéƒ¨åˆ†æœ€åŽä¸€ä¸ªèŠ‚ç‚¹
     Node* p = list->next;
     Node* q = p->next;
 
@@ -226,11 +226,11 @@ void CLLList(Node* list)
         q = q->next->next;
     }
 
-    // ¢Ú ·Ö¿ªÇ°ºóÁ½²¿·Ö
+    // â‘¡ åˆ†å¼€å‰åŽä¸¤éƒ¨åˆ†
     Node* p1 = p->next;
     p->next = NULL;
 
-    // ¢Û ·´×ªºó°ë²¿·Ö
+    // â‘¢ åè½¬åŽåŠéƒ¨åˆ†
     Node* q1 = p1->next;
     Node* t = NULL;
 
@@ -242,7 +242,7 @@ void CLLList(Node* list)
         q1 = t;
     }
 
-    // ¢Ü ½»²æºÏ²¢
+    // â‘£ äº¤å‰åˆå¹¶
     Node* node = list->next;
     Node* t1 = NULL;
 
